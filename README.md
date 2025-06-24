@@ -158,15 +158,15 @@ GROUP BY category;
 
 10. **Write a SQL query to create each shift and number of orders (Example Morning <12, Afternoon Between 12 & 17, Evening >17)**:
 ```sql
-with hourly_sale as 
+WITH hourly_sale AS
 (
-select *,
-case
-when hour(sale_time) < 12 then 'Morning' 
-when hour(sale_time) between 12 and 17 then 'Afternoon'
-else 'Evening'
-end as shift 
-from retail_sales)
+SELECT *,
+CASE
+WHEN hour(sale_time) < 12 THEN 'Morning' 
+WHEN hour(sale_time) BETWEEN 12 AND 17 THEN 'Afternoon'
+ELSE 'Evening'
+END AS shift 
+FROM retail_sales)
 SELECT 
     shift, COUNT(*) AS total_orders
 FROM
